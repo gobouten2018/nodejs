@@ -13,8 +13,8 @@ let promiss_read_csv = () =>{
     (resolve, reject) => {
         // const data  = fs.readFileSync(path.join(__dirname, "sample.csv"), {encoding: "utf8"}); 
       // const data  = fs.readFileSync(fpath, {encoding: "utf8"});
-      const data  = fs.readFile(fpath, {encoding: "utf8"});
-      console.log(data);
+      // const data  = fs.readFile(fpath, {encoding: "utf8"});
+      // console.log(data);
       // index.js:9
       // "101","test1",1,"AAA1"
       // "102","test2",2,"BBB2"
@@ -26,6 +26,7 @@ let promiss_read_csv = () =>{
       let resJson = {};
       // fs.createReadStream(req.file.path)
       let result_list = [];
+      // fs.readFile(fpath, function(err, data){
       fs.readFile(fpath, function(err, data){
         if (err) return console.log("err read data");
         console.log("read naiyou ");
