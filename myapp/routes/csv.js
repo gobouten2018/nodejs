@@ -12,7 +12,8 @@ let promiss_read_csv = () =>{
   return new Promise(
     (resolve, reject) => {
         // const data  = fs.readFileSync(path.join(__dirname, "sample.csv"), {encoding: "utf8"}); 
-      const data  = fs.readFileSync(fpath, {encoding: "utf8"});
+      // const data  = fs.readFileSync(fpath, {encoding: "utf8"});
+      const data  = fs.readFile(fpath, {encoding: "utf8"});
       console.log(data);
       // index.js:9
       // "101","test1",1,"AAA1"
@@ -61,9 +62,15 @@ let promiss_read_csv = () =>{
   );// promise end
 }; // promiss_read_csv end
 
-let test2 =() => {
-    console.log("test2 called"); 
-  }
+let test2 = () => {
+  return new Promise(
+    (resolve, reject) => {  
+      console.log("test2 called"); 
+    }
+  );// promise end
+};
+
+
 // 実行
 promiss_read_csv()
   .then(
@@ -83,12 +90,15 @@ promiss_read_csv()
       }
  
     }
-  ,function(err){
-      console.log("err");
-      console.log("err:" + err);
-    }
-  )
-  .then(test2);
+    ,function(err){
+        console.log("err");
+        console.log("err:" + err);
+      }
+    )
+  .then(test2)
+  .catch(function(err) {
+    console.log("err:" + err);
+  });
 
 
 
@@ -158,36 +168,6 @@ router.get('/', function(req, res, next) {
   
 
   res.render('index', { title: 'ExpressIndex2' });
-});
-
-// 2018-10-06 add
-router.get('/about', function(req, res) {
-  res.send('About Index');
-});
- 
-
-
-// 2018-10-06 add
-router.get('/db', function(req, res) {
-
-  var mysql      = require('mysql');
-  var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'aaa',
-    password : 'bbb',
-    database: 'node_test'
-  });
-
-  connection.connect();
-
-  connection.query('SELECT title,content From book', function(err, rows, fields) {
-    if (err) throw err;
-    console.log('The solution is: ', rows[0].solution);
-  });
-  
-  connection.end();
-  
-  res.send('About DB');
 });
 
 module.exports = router;
