@@ -1,3 +1,60 @@
-test2018-10-08 1109
-aaa
-bbb
+// L150 map とfilter
+// ===========================================================
+// map
+// ===========================================================
+// mapは元の配列を利用して"必要な要素だけ"の配列を生成するのに使える。for文を使わずに作れる。
+const cart = [{name:"iPhone",price:50000},{name:"Android",price:10000}];
+// (1)name の配列が作りたいとき
+// (1-1)for文だと4行
+const testNames = [];
+for(let i=0;i<cart.length;i++){
+    testNames.push(cart[i].name);
+}
+console.log(testNames);// ["iPhone", "Android"]
+// (1-2)mapだと1行
+const names = cart.map(x=>x.name);
+console.log(names);// ["iPhone", "Android"]
+
+// (2)price の配列が作りたいとき
+const prices = cart.map(x=>x.price);
+console.log(prices);// [50000, 10000]
+// (3)値を操作して格納する. 2割引にする
+const discountPrices = prices.map(x=>x * 0.8);
+console.log(discountPrices);// [40000, 8000]
+
+// (4)2個の配列を1個の配列にするとき
+const items = ["iPhone","Android"];
+const prices2 = [60000,20000];
+const cart2 = items.map((x,i)=>({name:x,pricer:prices2[i]}));
+console.log(cart2);// [{name: "iPhone", pricer: 60000},{name: "Android", pricer: 20000}]
+// i はitems の添え字(ここでは 0,1)。
+// "=>({})" の"()"がないと{}をブロックとして解釈してしまうので必要。
+// const cart3 = items.map((x,i)=>{name:x,pricer:prices2[i]});
+// console.log(cart3);// Error Uncaught SyntaxError: Unexpected token :
+
+// ===========================================================
+// filter
+// ===========================================================
+// filter は配列から不要な要素を取り去るとき使用する
+// map同様、返り値は配列
+
+// (0:準備)トランプのカード配列を作成する
+const cards = [];
+for(let mark of ['H','C','D','S']){
+    for(let num=1;num<=13;num++){
+        cards.push({mark,num});
+    }
+}
+console.log(cards);// [{mark: "H", num: 1},{mark: "H", num: 2},... {mark: "S", num: 12},{mark: "S", num: 13}]
+// (1-1) 数字が2のカードだけを取り出す
+let sel2 = cards.filter(cards=>cards.num===2);
+console.log(sel2);// [{mark: "H", num: 2},{mark: "C", num: 2},{mark: "D", num: 2},{mark: "S", num: 2}]
+// (1-2) マークがダイア(D)だけを取り出す
+let selD = cards.filter(cards=>cards.mark==='D');
+console.log(selD);// [{mark: "D", num: 1},{mark: "D", num: 2},...,{mark: "D", num: 12},{mark: "D", num: 13}]
+// (2-1:不等号) 数字が10より大のカードだけを取り出す
+let selOver10 = cards.filter(cards=>cards.num>10);
+console.log(selOver10);// [{mark: "H", num: 11},{mark: "H", num: 12},...](3 * 4 =12枚)
+// (2-2:複数条件) 数字が10より大でマークがハート'H'だけを取り出す
+let selOver10Heart = cards.filter(cards=>cards.num>10 && cards.mark === 'H');
+console.log(selOver10Heart);// [{mark: "H", num: 11}, {mark: "H", num: 12} ,{mark: "H", num: 13}]
