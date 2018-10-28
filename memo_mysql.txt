@@ -1,0 +1,116 @@
+var express = require('express');
+var router = express.Router();
+
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'xxx',
+    password : 'yyy',
+    database : 'node_test'
+});
+let dbGet = () =>{
+    return new Promise(
+        (resolve, reject) => {
+            console.log("dbGet called");   
+            connection.connect();
+
+            let resJsonList = [];
+            connection.query(
+                'SELECT * FROM `book` WHERE `id` = ?',
+                '1',
+                function (error, results, fields) {
+                  // error will be an Error if one occurred during the query
+                  // results will contain the results of the query
+                  // fields will contain information about the returned results fields (if any)
+                  if (error) throw error;
+                  console.log('L41 : results:', results);
+                  
+                  console.log('L41 : results[0]:', results[0]);
+                  console.log('L41 : results[0].title:', results[0].title);
+                  results.forEach(element => {
+                    console.log('L41 : element:', element);
+                  });
+                  
+                }
+              );
+
+            let selectID2 = (element) => {
+                    return new Promise(
+                        (resolve, reject) => {  
+                            
+                            connection.query(
+                                'SELECT * FROM `book` WHERE `id` = ?',
+                                '2',
+                                function (error, results2, fields) {
+                                    // error will be an Error if one occurred during the query
+                                    // results will contain the results of the query
+                                    // fields will contain information about the returned results fields (if any)
+                                    if (error) throw error;
+                                    console.log('selectID2 L61 : results2:', results2);
+                                    console.log('selectID2 L61 : results2[0]:', results2[0]);
+                                    console.log('selectID2 L61 : results2[0].title:', results2[0].title);
+                                    // var cnt = 0;
+                                    results2.forEach(element2 => { 
+                                        element.connect = element2.content + "L64";
+                                        console.log('>>>selectID2 L61 : element:', element);
+                                    });
+                                    resolve();
+                                }
+                        );
+                    });
+            };
+
+            let resultList = [];
+            connection.query(
+                'SELECT * FROM `book`',
+                function (error, results, fields) {
+                    // error will be an Error if one occurred during the query
+                    // results will contain the results of the query
+                    // fields will contain information about the returned results fields (if any)
+                    if (error) throw error;
+                    console.log('L41 : results:', results);
+                    
+                    console.log('L41 : results[0]:', results[0]);
+                    console.log('L41 : results[0].title:', results[0].title);
+                    results.forEach(element => {
+                        let obj = {};
+                        console.log('L41 : element:', element);
+                        element.title = element.title + "kkkkk";
+                        obj.title = element.title ;
+                        obj.content = element.content ;
+
+                        selectID2(element)
+                          .then(resolve)
+                          .catch(reject);
+                        resultList.push(obj);
+                        
+                    }
+                    );
+                    console.log("resultList:" + resultList);
+                    resultList.forEach(el => {
+                        console.log("L73 el:" + el);
+                        console.log("L73 el.title:" + el.title);
+                        console.log("L73 el.content:" + el.content);
+                    });
+                    
+                }
+            );
+        //   connection.end();
+        }
+    ); // promise end
+};
+
+let test2 = () => {
+    return new Promise(
+      (resolve, reject) => {  
+        console.log("test2 called"); 
+      }
+    );// promise end
+  };
+
+dbGet()
+  .then(test2)
+  .catch(function(err) {
+    console.log("err:" + err);
+  });
+module.exports = router;
