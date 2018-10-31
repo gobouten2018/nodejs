@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta content="width=100%;height=100%" name="msapplication-window">
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta name="format-detection" content="telephone=no">
+	<title>CSS Samples</title>
+
+<style>
+
+	/* maein menu */
+	div.main_menu{
+		background-image:url("{{img_dir}}img/UI2/main_menu_bg.jpg");
+	}
+	div.main_menu ul{
+		display: table;
+		list-style: none;
+		overflow: hidden;
+		width: 80vw;
+		height: 15vw;
+		margin: 0px;
+		padding: 0;
+		padding-top: 1vw;
+	}
+	div.main_menu ul li{
+		display: table-cell;
+		background-image: url('{{ img_dir2 }}UI/menu01all.png');
+		/* main_menu_btn.png */
+		background-size: 90vw 36vw;
+		background-repeat: no-repeat;
+		width: 16vw;
+		height: 14vw;
+	}
+	li.menu1{
+		background-position: 0% 0;
+	}
+	li.menu2{
+		background-position: 24% 0;
+	}
+	li.menu3{
+		background-position: 49% 0;
+	}
+	li.menu4{
+		background-position: 73% 0;
+	}
+	li.menu5{
+		background-position: 97% 0;
+	}
+
+	div.main_menu ul li img{
+		width: 14vw;
+		height: 14vw;
+	}
+</style>
+
+
+<link href="base1.css?v=3" rel="stylesheet">
+
+<style>
+    div.left-area{
+        background-color: #669afc;
+        color:#28547e;
+        /* width: 30%; */
+        width: 10em;
+        float: left;
+    }
+    div.right-area{
+        background-color: #ff8d6b;
+        color:#922310;
+        /* width: 70%; */
+        float: right;
+        width: 12em;
+    }
+    div.footer{
+        background-color: #908d89;
+        color:#ffe570;
+        /* 周り込み解除 */
+        clear: both;
+    }
+    div.content-all{
+        width:22em;
+    }
+</style>
+
+</head>
+
+<body oncontextmenu='return false;' oncopy='return false;'>
+<!-- Start of Main Menu -->
+<div class="main_menu" >
+    <ul>
+        <li class="menu1">
+            <img src="{{ img_dir2 }}UI/dot8.png" style="width: 16vw;height: 14vw;vertical-align: middle;" alt="menu1"/>
+        </li>
+        <li class="menu2">
+            <img src="{{ img_dir2 }}UI/dot8.png" style="width: 16vw;height: 14vw;vertical-align: middle;" alt="menu1" />
+        </li>
+        <li class="menu3">
+            <img src="{{ img_dir2 }}UI/dot8.png" style="width: 16vw;height: 14vw;vertical-align: middle;" alt="menu1"/>
+        </li>
+        <li class="menu4">
+            <img src="{{ img_dir2 }}UI/dot8.png" style="width: 16vw;height: 14vw;vertical-align: middle;" alt="menu1"/>
+        </li>
+        <li class="menu5">
+            <a class="noBgImg" data-remodal-target="menu_detail_by_modal" style="margin:0;padding:0;" href="#">
+                <img src="{{ img_dir2 }}UI/dot8.png" style="width: 16vw;height: 14vw;vertical-align: middle;" alt="menu5"  />
+            </a>
+        </li>
+    </ul>
+</div>
+<!-- End of Main Menu -->
+
+<div class="content-all">
+    <div class="left-area">
+        <h1>Left Area.</h1>
+        <p>left.left.left.left.left.left.left.</p>
+    </div>
+    <div class="right-area">
+        <h1>Right Area.</h1>
+        <p>right.right.right.right.right.right.</p>
+    </div>
+    <div class="footer">
+        <p>This is footer area......</p>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
