@@ -1,0 +1,175 @@
+@charset "UTF-8";
+/* Basic bodyの横幅とフォントを画面解像度ごとに指定する body横幅20emであわせる */
+/* (1/5) スマホ(S) メジャーな端末最小の 320px を横幅に指定する。それ以上大きいものは左右に黒 */
+html{
+	font-size: 100px;/* 100px */
+}
+body{
+    /* 100px の 0.16倍(=16px) bodyだけはfont-size em で指定すること */
+    /* font-size: .16em; */
+    /* 16px の 20倍(=320px) */
+	/* width:20em;       */
+	font-size: .14em;/* 100px の 0.14倍(=14px) bodyだけはfont-size em で指定すること */
+	width:22em;      /* 14px の 22倍(=308px) */
+}
+h1{
+    /* 100px の 0.2倍(=20px) */
+    /* font-size: .2rem; */
+    /* 100px の 0.17倍(=17px) 基本サイズの125% */
+    font-size: .17rem;
+}
+h2{
+    /* 100px の 0.12倍(=12px) */
+    /* font-size: .12rem; */
+    /* 基本サイズの75% */
+	font-size: .11rem;
+}
+li,input[type="submit"],form select,p {
+    /* 基本サイズ */
+	/* font-size: .16rem; */
+	font-size: .14rem;
+}
+
+/* (2/5) スマホ(M) 360px を横幅に指定するT */
+@media screen and (min-width: 360px) {
+	body{
+        /* 18px */
+        /* font-size: .18em; */
+        /* 18px の 20倍(=360px) */
+        /* width: 20em; */
+        font-size: .16em;
+        /* 16*12=352px */
+        width:22em;
+	}
+	h1{
+		/* font-size: .22rem; */
+        /* 基本サイズの125% */
+        font-size: .20rem;
+	}
+	h2{
+        /* font-size: .2rem; */
+        /* 基本サイズの75% */
+        font-size: .12rem;
+	}
+	li,input[type="submit"],form select,p{
+        /* font-size: .18rem; */
+        /* 基本サイズ */
+        font-size: .16rem;
+	}
+}
+/* (3/5) スマホ(L) 480px を横幅に指定する */
+@media screen and (min-width: 480px) {
+	body{
+		/* font-size: .24em;
+        width: 20em; */
+        /* width: 20em; */
+        font-size: .21em;
+        /* 21*22=462px */
+        width:22em;
+	}
+	h1{
+		/* font-size: .3rem; */
+        /* 基本サイズの125% */
+        font-size: .26rem;
+	}
+	h2{
+		/* font-size: .2rem; */
+        /* 基本サイズの75% */
+        font-size: .16rem;
+	}
+	li,input[type="submit"],form select,p{
+		/* font-size: .24rem; */
+        /* 基本サイズ */
+        font-size: .21rem;
+	}
+}
+/* (4/5) タブレット 768px を横幅に指定する */
+@media screen and (min-width: 768px) {
+	body{
+		/* font-size: .38em;
+        width: 20em; */
+        font-size: .34em;
+        /* 34*22=748px */
+        width:22em;
+	}
+	h1{
+		/* font-size: .44rem; */
+        /* 基本サイズの125% */
+        font-size: .27rem;
+	}
+	h2{
+		/* font-size: .34rem; */
+        /* 基本サイズの75% */
+        font-size: .16rem;
+	}
+	li,input[type="submit"],form select,p{
+		/* font-size: .38rem; */
+        /* 基本サイズ */
+        font-size: .34rem;
+	}
+}
+/* (5/5) PC 980px を横幅に指定する */
+@media screen and (min-width: 980px){
+	body{
+		/* font-size: .38em;
+        width: 20em; */
+        font-size: .34em;
+        /* 34*22=748px */
+        width:22em;
+	}
+	h1{
+		/* font-size: .44rem; */
+        /* 基本サイズの125% */
+        font-size: .27rem;
+	}
+	h2{
+		/* font-size: .34rem; */
+        /* 基本サイズの75% */
+        font-size: .16rem;
+	}
+	li,input[type="submit"],form select,p{
+		/* font-size: .38rem; */
+        /* 基本サイズ */
+        font-size: .34rem;
+	}
+}
+
+/* 共通 */
+body {
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+}
+div.canvas_area {
+    /*    position: relative;*/
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    padding:0px;
+    margin:0px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+canvas#canvas {
+    width: 22em;
+    z-index: 1;
+    display: block;
+    vertical-align: middle;
+    /* For TEST   */
+    /*    height: 100%;*/
+    margin-left:auto;
+    margin-right:auto;
+    top: 0;
+    left:0;
+    background-color:#000000;
+}
+html{
+    background-color:#9be28a;
+}
+body{
+    margin: 0;
+    margin-left:auto; margin-right:auto;
+    width:100%;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    height:100%;
+    padding: 0px;
+}
