@@ -130,7 +130,7 @@ li,input[type="submit"],form select,p {
 	li,input[type="submit"],form select,p{
 		/* font-size: .38rem; */
         /* 基本サイズ */
-        font-size: .34rem;
+        /* font-size: .34rem; */
     }
 
     /* PCだけ回り込み */
@@ -138,21 +138,27 @@ li,input[type="submit"],form select,p {
         background-color: #669afc;
         color:#28547e;
         display: table-cell;
-        width: 10em;
+        word-wrap: break-word;
+        overflow: hidden;
+        width: 50%;
     }
     div.right-area{
         background-color: #ff8d6b;
         color:#922310;
         display: table-cell;
-        width: 12em;
+        word-wrap: break-word;
+        overflow: hidden;
+        width: 50%;
     }
+
     div.footer{
         background-color: #908d89;
         color:#ffe570;
     }
     div.content-all{
         display: table;
-        width:22em;
+        table-layout: fixed;
+        width:100%;
     }
 
 }
