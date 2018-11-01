@@ -131,7 +131,30 @@ li,input[type="submit"],form select,p {
 		/* font-size: .38rem; */
         /* 基本サイズ */
         font-size: .34rem;
-	}
+    }
+
+    /* PCだけ回り込み */
+    div.left-area{
+        background-color: #669afc;
+        color:#28547e;
+        display: table-cell;
+        width: 10em;
+    }
+    div.right-area{
+        background-color: #ff8d6b;
+        color:#922310;
+        display: table-cell;
+        width: 12em;
+    }
+    div.footer{
+        background-color: #908d89;
+        color:#ffe570;
+    }
+    div.content-all{
+        display: table;
+        width:22em;
+    }
+
 }
 
 /* 共通 */
