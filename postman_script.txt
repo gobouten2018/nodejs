@@ -1,0 +1,46 @@
+postman  pre-requestScript
+console.log("test Console start");
+let reqBody = request.Body;
+console.log("reqBody:" + reqBody);
+console.log("request:" + request);
+console.log("request.data:" + request.data);
+// for (var item in request.data){
+//     console.log("item:" + item);
+    
+// }
+console.log("test Console =====L10");
+console.log("request.data[0]:" + request.data[0]);
+var obj = JSON.parse(request.data); 
+for (var item in obj){
+    console.log("item:" + item);
+    console.log("obj[item]:" + obj[item]);
+    console.log("obj[item].id:" + obj[item].id);
+    console.log("obj[item].test:" + obj[item].test);
+}
+console.log("test Console =====L19");
+console.log("request.data.length:" + request.data.length);
+console.log("test Console =====L21");
+
+var string1 = "";
+for (var property1 in request) {
+  string1 = request[property1];
+  console.log("property1:" + property1);
+  console.log("string1:" + string1);
+}
+console.log("test Console =====L29");
+console.log("test Console end");
+
+// example using pm.response.to.have
+pm.test("response is ok", function () {
+    pm.response.to.have.status(200);
+});
+
+
+// console.log("reqBody[0]:" + reqBody[0]);
+
+// pm.variables.get("variable_key");
+
+
+pm.sendRequest("https://postman-echo.com/get", function (err, response) {
+    console.log(response.json());
+});
