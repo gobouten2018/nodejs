@@ -1,4 +1,11 @@
-postman  pre-requestScript
+■■■　POSTのbodyで　以下を指定。■■■
+[{"test":"test1","id":1},
+{"test":"test2","id":2},
+{"test":"test3","id":3}
+]
+
+
+■■■　postman  pre-requestScript　■■■
 console.log("test Console start");
 let reqBody = request.Body;
 console.log("reqBody:" + reqBody);
@@ -10,6 +17,7 @@ console.log("request.data:" + request.data);
 // }
 console.log("test Console =====L10");
 console.log("request.data[0]:" + request.data[0]);
+// Stringになってるので、parseしてオブジェクトとしてアクセスできるようにする
 var obj = JSON.parse(request.data); 
 for (var item in obj){
     console.log("item:" + item);
