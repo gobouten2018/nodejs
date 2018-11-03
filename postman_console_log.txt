@@ -1,0 +1,23 @@
+https://www.getpostman.com/docs/v6/postman/sending_api_requests/debugging_and_logs
+
+【postman】console.logを使う
+https://www.getpostman.com/docs/v6/postman/sending_api_requests/debugging_and_logs
+こちらのとおりだけれども。
+
+chromeのアドレスバーから「chrome://flags/#debug-packed-apps」表示
+この状態になっていることを確認
+f:id:yoppy0066:20180405100536p:plain
+
+
+chromeのアドレスバーから「chrome://inspect/#apps」表示
+インスペクタが表示される
+
+「Pre-request Script」「Tests」でconsole.logすると確認できる。
+
+例
+
+console.log( JSON.parse(responseBody) );
+上記はchromeのアドオン版の話で、Macアプリとして使う場合は以下から可能でした。
+メニューバー > View > Show Postman Console
+
+https://stackoverflow.com/questions/31157675/debug-output-in-tests
