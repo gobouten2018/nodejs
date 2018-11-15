@@ -1,0 +1,41 @@
+WITH句とは
+WITH句は、ネストされたテーブルに別名をつけて読みやすくするために使用する構文。
+
+(1)WITH句を使わない書き方
+--------------------------------------------------------------------------
+SELECT
+    *
+FROM
+    (
+        SELECT
+            user_id,
+            SUM(payment) AS total_payment
+        FROM
+            payments
+        GROUP BY
+            user_id
+    ) a
+WHERE
+    a.total_payment > 3000
+--------------------------------------------------------------------------
+
+(2)WITH句を使った書き方
+--------------------------------------------------------------------------
+WITH a AS (
+    SELECT
+        user_id,
+        SUM(payment) AS total_payment
+    FROM
+        payments
+    GROUP BY
+        user_id
+)
+
+SELECT
+    *
+FROM
+    a
+WHERE
+    a.total_payment > 3000
+--------------------------------------------------------------------------
+ テーブルに別名 a を付けて利用した例。
